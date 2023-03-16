@@ -19,21 +19,21 @@ body {
 }
 
 .quiz-container {
+    text-align: center;
     background-color: antiquewhite;
     border: 5px solid black;
     padding: 15px;
     width: 1200px;
     max-width: 80%;
+    margin: auto 0;
     box-shadow: 0 0 20px 2px;
 }
 
-.buttons-alignment {
+.buttons button {
     display: grid;
-    gap: 10px;
-    margin: 10px 50px;
-}
-
-.buttons {
+    width: 300px;
+    max-width: 70%;
+    margin: 10px auto;
     background-color: var(--boxcolor-normal);
     color: black;
     font-size: 1em;
@@ -41,7 +41,7 @@ body {
     border-color: orange;
 }
 
-.buttons:hover {
+.buttons button:hover {
     border-color: black;
 }
 
@@ -53,6 +53,28 @@ body {
 
 .start-button {
     padding: 5px;
-    font-size: 1em;
+    font-size: 1rem;
+    background-color: black;
+    color: antiquewhite;
+    border: none;
 }
 
+.start-button:hover {
+    background-color: #555;
+}
+
+.next-button {
+    padding: 5px;
+    font-size: 1rem;
+    background-color: black;
+    color: antiquewhite;
+    border: none;
+}
+
+.next-button:hover {
+    background-color: #555;
+}
+
+.hide {
+    display: none;
+}

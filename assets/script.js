@@ -1,46 +1,47 @@
+//Grabs "question-container", which contains Question and all answer buttons
+var quizQuestionContainer = document.querySelector('.question-container');
+//Grabs "quiz-question", which is where the question goes
+var quizQuestion = document.querySelector('.quiz-question');
+//Grabs the buttons, which is all 4 answer buttons
+var buttons = document.querySelector('.buttons');
+//Grabs the individual button element
+var button = document.querySelectorAll('.button')
 //Grabs the Start Quiz button
-var startButton = document.getElementById('start-button');
-//Grabs the question div
-var quizQuestion = document.getElementById('question');
-//Grabs the entire div that contains each answer button
-var answersSection= document.getElementById('answers');
-var btns = document.querySelectorAll('buttons');
+var startButton = document.querySelector('.start-button');
+//Grabs the Next Question button
+var nextButton = document.querySelector('.next-button');
 
-var question1 = {
-    questionText: 'Where do you put the JavaScript link in your HTML?',
-    choices: ['<main>', '<script>', '<button>', 'in a class'],
-    correctIndex: 1
-};
-var question2 = {
-    questionText: 'How do you create a function in JavaScript?',
-    choices: ['function.queryselector(true)', 'function.new() {}', 'function newFunction() {}', 'upTownFuncYouUp'],
-    correctIndex: 2 
-};
-var question3 = {
-    questionText: 'String sections in JavaScript contain what?',
-    choices: ['Fibers twisted together to form a strand', 'Data represented in text form', 'Violins, cellos, guitars', 'Lots of knots'],
-    correctIndex: 1
-}
-var question4 = {
-    questionText: 'What do we use to identify the first option in an array?',
-    choices: ['0', '1', '2', 'one'],
-    correctIndex: 0
-}
+//Tracks the current index card
+var currentQuestionIndex = 0;
 
-//Begins the quiz
-startButton.addEventListener('click', startQuiz);
-
-function startQuiz() {
-
-}
-//Function to apply var=questions options to the question and buttons
+//Function that displays a question to the window
 function displayQuestion() {
+  quizQuestion.innerText = question1.text;
+  quizQuestion.classList.remove('hide');
+  buttons.classList.remove('hide');
+  for (var i = 0; i < question1.choices.length; i++) {
+    var choice = question1.choices[i];
 
+    button.textContent = choice;
+    button.dataset = i;
+  }
 }
 
 function addNextQuestion() {
 
 }
+
+//Hides the start button and brings up the Questions
+function startTheQuiz() {
+  startButton.classList.add('hide');
+  displayQuestion();
+}
+
+//Begins the quiz, and moves to next question
+startButton.addEventListener('click', startTheQuiz);
+nextButton.addEventListener('click', displayQuestion);
+  currentQuestionIndex++;
+
 
 
 //adjusts the timer
